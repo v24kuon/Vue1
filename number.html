@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.jsテスト</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <h1>Vue3</h1>
+  <div id="app">
+    <div>
+      {{ num + 'は、 ' + (num % 2 == 0 ? '偶数' : '奇数') + 'です。 '}}
+    </div>
+  </div>
+
+  <script>
+    const appdata = {
+      data() {
+        return {
+          num: Math.floor(Math.random() * 100)
+        }
+      }
+    }
+
+    let app = Vue.createApp(appdata)
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
