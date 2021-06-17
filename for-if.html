@@ -26,12 +26,20 @@
           <th>tel</th>
         </tr>
       </thead>
-      <tr v-for="(item, id) in items">
-        <td>{{id}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.mail}}</td>
-        <td>{{item.tel}}</td>
-      </tr>
+      <template v-for="(item, index) in items">
+        <tr v-if="index % 2 ==0">
+          <td>{{index}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.mail}}</td>
+          <td>{{item.tel}}</td>
+        </tr>
+        <tr v-else>
+          <td>***</td>
+          <td>***非公開***</td>
+          <td>***非公開***</td>
+          <td>***非公開***</td>
+        </tr>
+      </template>
     </table>
   </div>
 
@@ -39,12 +47,13 @@
     const appdata = {
       data() {
         return {
-          message : '※データをテーブル表示する',
-          items:[
-            {name:'Taro',mail:'taro@yamada',tel:'999-999'},
-            {name:'Hanako',mail:'hanako@flower',tel:'888-888'},
-            {name:'Sachiko',mail:'sachiko@happy',tel:'777-777'},
-            {name:'Jiro',mail:'jiro@change',tel:'666-666'},
+          message: '※データをテーブル表示する',
+          items: [
+            { name: 'Taro', mail: 'taro@yamada', tel: '999-999' },
+            { name: 'Hanako', mail: 'hanako@flower', tel: '888-888' },
+            { name: 'Sachiko', mail: 'sachiko@happy', tel: '777-777' },
+            { name: 'Jiro', mail: 'jiro@change', tel: '666-666' },
+            { name: 'mami', mail: 'mami@mumemo', tel: '555-555' },
           ]
         }
       }
